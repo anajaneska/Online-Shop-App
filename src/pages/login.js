@@ -60,7 +60,7 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit">Login</button>
+                <button type="submit" className="btn btn-primary">Login</button>
                 {error && <span>Wrong email or password!</span>}
             </form>
             <br></br>
