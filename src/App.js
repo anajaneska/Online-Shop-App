@@ -5,9 +5,13 @@ import Register from './pages/register';
 import NotFound from './pages/not-found';
 import Login from './pages/login';
 import Home from './pages/home';
+import Header from './components/header';
+import Footer from './components/footer';
 
 function App() {
   return (
+    <>
+    <Header></Header>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home/>}></Route>
@@ -16,6 +20,9 @@ function App() {
         <Route path="*" element={<NotFound/>}></Route>
       </Routes>
     </BrowserRouter>
+    <Footer></Footer>
+    </>
+    
   );
 }
 

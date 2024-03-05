@@ -2,6 +2,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router";
 
+
 const Home = () => {
     const navigate = useNavigate();
 
