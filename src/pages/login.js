@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { auth } from "../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -9,13 +9,14 @@ const Login = () => {
     const [password, setPassword] = useState("");
     
     const navigate = useNavigate();
+    
+    const provider = new GoogleAuthProvider();
 
     const handleLogin = (e) => {
         e.preventDefault();
 
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed up 
                 const user = userCredential.user;
                 navigate("/")
             })
@@ -24,6 +25,24 @@ const Login = () => {
                 const errorMessage = error.message;
                 setError(true);
             });
+    }
+
+    const handleGoogleLogin = () => {
+        
+        signInWithPopup(auth, provider)
+        .then((result) => {
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            const user = result.user;
+            navigate("/")
+            
+        }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.customData.email;
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            
+        });
     }
     
     return (
@@ -44,6 +63,8 @@ const Login = () => {
                 <button type="submit">Login</button>
                 {error && <span>Wrong email or password!</span>}
             </form>
+            <br></br>
+            <button type="submit" onClick={handleGoogleLogin}>Login with Google</button>
         </div>
     );
 };
