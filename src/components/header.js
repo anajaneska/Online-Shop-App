@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return ( 
         <header>
             <img src="" alt="logo" />
             <h1>Pixie Crochet Skopje</h1>
-            <div>My Shopping Cart</div>
+            <a href="/shopping-cart">My Shopping cart</a>
             <div>Login/Logout Button</div>
         </header>
      );
