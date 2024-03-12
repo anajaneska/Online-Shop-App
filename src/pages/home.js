@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import {getDocs,collection} from 'firebase/firestore'
 
 import useGetProducts from "../getProducts";
+import Product from "./product";
 
 
 
@@ -28,10 +29,7 @@ const Home = () => {
             <button type="submit" onClick={handleLogout}>Logout</button>
         
             {productList.map((product) => (
-                <div key={product.id}>
-                    <h2>{product.name}</h2>
-                    <p>Price: {product.price}</p>
-                </div>
+                <Product data={product}/>
             ))}
         
         </div>

@@ -9,10 +9,12 @@ import ProductDetails from './pages/product-details';
 import Header from './components/header';
 import Footer from './components/footer';
 import ShoppingCart from './pages/cart/shopping-cart';
+import { ShopContext, ShopContextProvider } from "./context/shop-context";
 
 function App() {
   return (
     <>
+    <ShopContextProvider>
     <Header></Header>
     <BrowserRouter>
       <Routes>
@@ -25,6 +27,7 @@ function App() {
       </Routes>
     </BrowserRouter>
     <Footer></Footer>
+    </ShopContextProvider>
     </>
     
   );

@@ -65,6 +65,12 @@ const Login = () => {
             </form>
             <br></br>
             <button type="submit" onClick={handleGoogleLogin}>Login with Google</button>
+
+            <div>Don't have an account?
+            <a href="/register">Register here</a>
+            </div>
+            
+
         </div>
     );
 };
