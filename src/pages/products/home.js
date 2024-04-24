@@ -11,9 +11,9 @@ import { ShopContext } from "../../context/shop-context";
 
 
 
-const Home = () => {
+const Home = ({products}) => {
     const navigate = useNavigate();
-    const { products } = useContext(ShopContext);
+    //const { products } = useContext(ShopContext);
 
     const handleLogout = (e) => {
         e.preventDefault();

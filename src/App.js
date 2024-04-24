@@ -21,10 +21,10 @@ function App() {
     <Header></Header>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />}></Route>
+        <Route path='/' element={<Home products={productList}/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
-        <Route path='/product/:id' element={<ProductDetails/>}></Route>
+        <Route path='/product/:id' element={<ProductDetails products={productList}/>}></Route>
         <Route path="*" element={<NotFound/>}></Route>
         <Route path="/shopping-cart" element={<ShoppingCart />}></Route>
       </Routes>

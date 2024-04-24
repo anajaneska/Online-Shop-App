@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import { ShopContext } from '../../context/shop-context'
+import { Link } from "react-router-dom"
 const Product = (props) => {
     const {id,name,price,description,image}=props.data
     const {addToCart,cartItems} =useContext(ShopContext)
@@ -21,6 +22,9 @@ const Product = (props) => {
                 <button className="btn btn-primary" onClick={()=>addToCart(id)}>
                     Add to cart {cartItemAmount>0 && <>({cartItemAmount})</>}
                 </button>
+                <Link to={`/product/${id}`} className={"btn btn-info ml-2"}>
+                    See details
+                </Link>
             </div>
         </div>
     </div>
