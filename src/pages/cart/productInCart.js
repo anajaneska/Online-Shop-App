@@ -1,9 +1,11 @@
-const ProductInCart = () => {
+const ProductInCart = (props) => {
+    const {id,name,price,description,image,quantity}=props.data
     return ( 
         <div>
-            <div>Price: ...</div>
-            <div>Remove item from shopping cart</div>
-            Product
+            {/* <div>Remove item from shopping cart</div> */}
+            <div>{name}</div>
+            <div>{price}</div>
+            <div>{quantity}</div>
         </div>
      );
 }

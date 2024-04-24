@@ -1,17 +1,19 @@
 import { signOut } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import { useNavigate } from "react-router";
-import {db} from "../firebase"
-import { useEffect, useState } from "react";
+import {db} from "../../firebase"
+import { useEffect, useState, useContext} from "react";
 import {getDocs,collection} from 'firebase/firestore'
 
-import useGetProducts from "../getProducts";
+import useGetProducts from "../../getProducts";
 import Product from "./product";
+import { ShopContext } from "../../context/shop-context";
 
 
 
 const Home = () => {
     const navigate = useNavigate();
+    const { products } = useContext(ShopContext);
 
     const handleLogout = (e) => {
         e.preventDefault();
@@ -20,7 +22,7 @@ const Home = () => {
         }).catch((error) => { });
     }
 
-    const {productList}=useGetProducts()
+    //const {productList}=useGetProducts()
 
 
     return(
@@ -28,9 +30,10 @@ const Home = () => {
             Home
             <button type="submit" onClick={handleLogout}>Logout</button>
         
-            {productList.map((product) => (
-                <Product data={product}/>
+            {products.map((product) => (
+                <Product key={product.id} data={product}/>
             ))}
+            
         
         </div>
     );
