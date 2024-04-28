@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -65,6 +65,12 @@ const Login = () => {
             </form>
             <br></br>
             <button type="submit" onClick={handleGoogleLogin}>Login with Google</button>
+
+            <div>Don't have an account?
+            <a href="/register">Register here</a>
+            </div>
+            
+
         </div>
     );
 };
