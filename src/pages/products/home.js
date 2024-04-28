@@ -99,7 +99,7 @@ const AboutUsText = styled.p`
     font-size: 0.8rem;
   }
 `
-const Home = (products) => {
+const Home = ({products}) => {
 
   return (
     <> <BannerImageWrapper className='container-fluid'>
@@ -148,11 +148,9 @@ const Home = (products) => {
       <div className='container my-5 py-5'>
       <SubheadingComponent2 text="Our Products"></SubheadingComponent2>
       <OffersContainerWrapper className='row'>
-        <div className='col-lg-4 col-12'>
-           {products.map((product) => (
+           {products.slice(0,8).map((product) => (
                 <Product key={product.id} data={product}/>
             ))}
-        </div>
       </OffersContainerWrapper>
       </div>
     </>
