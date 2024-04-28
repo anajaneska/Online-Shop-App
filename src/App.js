@@ -11,10 +11,11 @@ import Footer from './components/footer';
 import ShoppingCart from './pages/cart/shopping-cart';
 import { ShopContext, ShopContextProvider } from "./context/shop-context";
 import useGetProducts from "./getProducts";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 function App() {
   const {productList} = useGetProducts()
+  
 
   return (
     <ShopContextProvider products={productList}>

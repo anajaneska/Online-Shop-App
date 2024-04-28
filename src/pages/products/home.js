@@ -13,7 +13,9 @@ import { ShopContext } from "../../context/shop-context";
 
 const Home = ({products}) => {
     const navigate = useNavigate();
-    //const { products } = useContext(ShopContext);
+    const [search, setSearch] =useState('');
+    const [selectedCategory, setSelectedCategory]=useState('')
+    
 
     const handleLogout = (e) => {
         e.preventDefault();
@@ -22,15 +24,40 @@ const Home = ({products}) => {
         }).catch((error) => { });
     }
 
-    //const {productList}=useGetProducts()
-
+    function handleAdd(e){
+        setSelectedCategory(e.target.value)
+     }
 
     return(
         <div>
             Home
             <button type="submit" onClick={handleLogout}>Logout</button>
-        
-            {products.map((product) => (
+        <form>
+            <input placeholder='Search products' 
+            onChange={(e) => setSearch(e.target.value)}>
+          </input>
+        </form>
+        <select name="filter" onChange={handleAdd}>
+          <option value="All">All</option>
+          <option value="Home">Home</option>
+          <option value="Accessory">Accessory</option>
+          <option value="Clothing">Clothing</option>
+        </select>
+
+
+            {products
+            .filter((item) => {
+                return search.toLowerCase() === ''
+                ? item
+                : item.name.toLowerCase().includes(search)
+            })
+            .filter((item)=>{
+                if(selectedCategory==='All')
+                return true
+                else
+                return item.category===selectedCategory
+            })
+            .map((product) => (
                 <Product key={product.id} data={product}/>
             ))}
             

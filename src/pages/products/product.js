@@ -3,7 +3,7 @@ import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import { ShopContext } from '../../context/shop-context'
 import { Link } from "react-router-dom"
 const Product = (props) => {
-    const {id,name,price,description,image}=props.data
+    const {id,name,price,description,image,category}=props.data
     const {addToCart,cartItems} =useContext(ShopContext)
 
     const cartItemAmount=cartItems[id]
@@ -18,6 +18,7 @@ const Product = (props) => {
             <div className="card-body">
                 <h4 className="card-title">{name}</h4>
                 <p className="card-text">{description}</p>
+                <p>{category}</p>
                 <h6>{price}ден</h6>
                 <button className="btn btn-primary" onClick={()=>addToCart(id)}>
                     Add to cart {cartItemAmount>0 && <>({cartItemAmount})</>}
