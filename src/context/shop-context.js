@@ -15,7 +15,7 @@ const getDefaultCart = (products) => {
 export const ShopContextProvider = ({children}) => {
     const products = useGetProducts().productList;
     const [cartItems,setCartItems] = useState(getDefaultCart(products));
-    console.log(cartItems)
+    //console.log(cartItems)
     const addToCart = (itemId) =>{
         setCartItems((prev)=>{
             if(!prev[itemId]){

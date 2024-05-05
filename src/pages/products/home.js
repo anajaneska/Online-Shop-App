@@ -1,21 +1,17 @@
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router";
-import {db} from "../../firebase"
-import { useEffect, useState, useContext} from "react";
-import {getDocs,collection} from 'firebase/firestore'
-
-import useGetProducts from "../../getProducts";
+import { useState} from "react";
 import Product from "./product";
-import { ShopContext } from "../../context/shop-context";
+import { useSelector } from "react-redux";
 
-
-
-const Home = ({products}) => {
+const Home = () => {
+    const {items}= useSelector(state=>state.products)
+    //console.log(items);
     const navigate = useNavigate();
     const [search, setSearch] =useState('');
-    const [selectedCategory, setSelectedCategory]=useState('')
-    
+    const [selectedCategory, setSelectedCategory]=useState('All')
+   // const {addToCart,cartItems} =useContext(ShopContext)
 
     const handleLogout = (e) => {
         e.preventDefault();
@@ -45,7 +41,7 @@ const Home = ({products}) => {
         </select>
 
 
-            {products
+            {items
             .filter((item) => {
                 return search.toLowerCase() === ''
                 ? item
