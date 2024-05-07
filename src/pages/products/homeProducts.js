@@ -1,12 +1,13 @@
 
 import { useState} from "react";
+import { useSelector } from "react-redux";
 
 import Product from "./product";
 
-const HomeProducts = ({products}) => {
+const HomeProducts = () => {
 
     const [search, setSearch] =useState('');
-
+    const {items}= useSelector(state=>state.products)
     return(
         <div>
             Home Products
@@ -16,7 +17,7 @@ const HomeProducts = ({products}) => {
           </input>
         </form>
 
-            {products
+            {items
             .filter((item) => {
                 return search.toLowerCase() === ''
                 ? item

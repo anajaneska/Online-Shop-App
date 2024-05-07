@@ -41,6 +41,9 @@ const ShoppingCart = () => {
                 <div>
                     Subtotal: {cart.cartTotalAmount}
                 </div>
+                <div>
+                    <a href="/">Back to shopping</a>
+                </div>
             </div>
 
         </div>
