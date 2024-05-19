@@ -2,7 +2,7 @@
 import { useState} from "react";
 import { useSelector } from "react-redux";
 
-import Products from "./products";
+import Product from "./product";
 
 const HomeProducts = () => {
 
@@ -28,7 +28,7 @@ const HomeProducts = () => {
                 return true
             })
             .map((product) => (
-                <Products key={product.id} data={product}/>
+                <Product key={product.id} data={product}/>
             ))}
             
         

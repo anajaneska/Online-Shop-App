@@ -6,7 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 //import store from './store';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { configureStore } from '@reduxjs/toolkit';
 import productsReducer, { fetchProducts } from './features/productsSlice';
 import cartReducer, {getTotals} from './features/cartSlice';
@@ -21,7 +21,7 @@ const store=configureStore({
 store.dispatch(fetchProducts())
 store.dispatch(getTotals())
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

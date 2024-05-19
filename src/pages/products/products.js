@@ -1,27 +1,33 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import styled from 'styled-components';
-import Product from "../../components/ProductCardComponent";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
+import { useNavigate } from "react-router";
+import { useState} from "react";
+import Product from "./product";
+import { useSelector } from "react-redux";
 
-const AllProductsWrapper = styled.div`
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-`
-const ProductsWrapper = styled.div`
-    padding: 2rem;
-`
-
-const Products = ({products}) => {
+const Products = () => {
+    const {items}= useSelector(state=>state.products)
+    //console.log(items);
     const navigate = useNavigate();
     const [search, setSearch] =useState('');
-    const [selectedCategory, setSelectedCategory]=useState('')
-    
+    const [selectedCategory, setSelectedCategory]=useState('All')
+   // const {addToCart,cartItems} =useContext(ShopContext)
+
+    const handleLogout = (e) => {
+        e.preventDefault();
+        signOut(auth).then(() => {
+            navigate("/login");
+        }).catch((error) => { });
+    }
+
     function handleAdd(e){
         setSelectedCategory(e.target.value)
      }
-    
-    return (
-        <AllProductsWrapper className="container">
+
+    return(
+        <div>
+            Home
+            <button type="submit" onClick={handleLogout}>Logout</button>
         <form>
             <input placeholder='Search products' 
             onChange={(e) => setSearch(e.target.value)}>
@@ -33,8 +39,9 @@ const Products = ({products}) => {
           <option value="Accessory">Accessory</option>
           <option value="Clothing">Clothing</option>
         </select>
-        
-        {products
+
+
+            {items
             .filter((item) => {
                 return search.toLowerCase() === ''
                 ? item
@@ -45,15 +52,13 @@ const Products = ({products}) => {
                 return true
                 else
                 return item.category===selectedCategory
-            })}
-        
-        <ProductsWrapper className="row">
-            {products.map((product) => (
+            })
+            .map((product) => (
                 <Product key={product.id} data={product}/>
             ))}
-        </ProductsWrapper>
+            
         
-        </AllProductsWrapper>
+        </div>
     );
 };
 
