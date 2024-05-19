@@ -7,7 +7,7 @@ const ProductDetailWrapper = styled.div`
 
 const ProductDetails = ({}) => {
     return (
-        <ProductDetailWrapper className="container">
+        <ProductDetailWrapper className="container px-5 py-5">
             <ProductDetailsComponent></ProductDetailsComponent>
         </ProductDetailWrapper>
     );

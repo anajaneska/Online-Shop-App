@@ -1,7 +1,63 @@
-import ProductInCart from "./productInCart";
+import ProductInCartComponent from "../../components/ProductInCartComponent";
+import styled from 'styled-components';
 import { useDispatch , useSelector} from "react-redux";
 import { useEffect } from "react";
 import { clearCart, getTotals } from '../../features/cartSlice';
+import SubheadingComponent3 from "../../components/SubheadingComponent3";
+
+const EmptyCartContainer = styled.div`
+    text-transform: capitalize;
+    font-family: 'Montserrat';
+`
+const CartButtonContainer = styled.button`
+    border: solid 2px #BB0000;
+    border-radius: 24px;
+    padding: 5px 35px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    text-transform: capitalize;
+    color: #BB0000;
+    
+    @media (max-width: 768px) {
+        font-size: 0.8rem;
+        padding: 5px 25px;
+    }
+`
+const CartDetailsWrapper = styled.div`
+    margin: 2rem 0.3rem;
+`
+const CartTotalContainer = styled.h3`
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 1400px) {
+        font-size: 23px;
+    }
+    @media (max-width: 1200px) {
+        font-size: 22px;
+    }
+    @media (max-width: 992px) {
+        font-size: 20px;
+    }
+    @media (max-width: 768px) {
+        font-size: 18px;
+    }
+`
+const BackToShoppingLink = styled.a`
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    text-transform: capitalize;
+    text-decoration: underline #687778 solid 1px;
+    color: #687778;
+`
 
 const ShoppingCart = () => {
     const cart = useSelector(state => state.cart)
@@ -14,38 +70,33 @@ const ShoppingCart = () => {
         dispatch(clearCart())
     }
     return (
-        <div className="cart">
-            <h2>Your Cart Items: </h2>
+        <div className="container px-5">
+            <div className="container my-5">
+                <SubheadingComponent3 text="Your Cart Items:" className="my-3"></SubheadingComponent3>
+           
             {cart.cartItems.length === 0 ? (
-                <div>
+                <EmptyCartContainer>
                     <p>Your cart is empty</p>
-                </div>
+                </EmptyCartContainer>
             ) : (
-                <div>
-                    <div className="titles">
-                        <h3 className="product-name">Product</h3>
-                        <h3 className="price">Price</h3>
-                        <h3 className="quantity">Quantity</h3>
-                        <h3 className="total">Total</h3>
-                    </div>
+                <CartDetailsWrapper>
                     <div>
                         {cart.cartItems?.map(cartItem => (
-                            <ProductInCart key={cartItem.id} data={cartItem}/>
+                            <ProductInCartComponent key={cartItem.id} data={cartItem}/>
                         ))}
                     </div>
-                </div>
+                    <div className="d-flex justify-content-between align-items-center">
+                        <CartTotalContainer>
+                            Subtotal: {cart.cartTotalAmount}
+                        </CartTotalContainer>
+                        <CartButtonContainer onClick={()=>handleClear()}>
+                            Clear Cart
+                        </CartButtonContainer>
+                    </div>
+                </CartDetailsWrapper>
             )}
-
-            <div>
-                <button onClick={()=>handleClear()}>Clear cart</button>
-                <div>
-                    Subtotal: {cart.cartTotalAmount}
-                </div>
-                <div>
-                    <a href="/">Back to shopping</a>
-                </div>
+                <BackToShoppingLink href="/products">Back to shopping</BackToShoppingLink>
             </div>
-
         </div>
     )
 }

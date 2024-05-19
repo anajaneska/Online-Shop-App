@@ -1,7 +1,7 @@
 import {useState} from "react";
 import { useSelector } from "react-redux";
 
-import Product from "./product";
+import ProductCardComponent from "../../components/ProductCardComponent";
 const ClothesProducts = () => {
     const [search, setSearch] =useState('');
     const {items}= useSelector(state=>state.products)
@@ -26,7 +26,7 @@ const ClothesProducts = () => {
                 return true
             })
             .map((product) => (
-                <Product key={product.id} data={product}/>
+                <ProductCardComponent key={product.id} data={product}/>
             ))}
             
         

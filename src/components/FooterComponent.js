@@ -41,6 +41,7 @@ const FooterTitle = styled.h2`
 const FooterLink = styled.a`
     padding: 0.3rem 0;
     color: #FFFFFF;
+    text-decoration: none;
     &:hover {
         color: #FFFFFF;
         font-weight: 500;
@@ -67,15 +68,14 @@ const FooterComponent = () => {
         <FooterLinkContainer className='d-grid text-left'>
             <FooterTitle>Navigation</FooterTitle>
             <FooterLink href='/'>Home</FooterLink>
-            <FooterLink href='/'>Category One</FooterLink>
-            <FooterLink href='/'>Category Two</FooterLink>
-            <FooterLink href='/'>Category Three</FooterLink>
+            <FooterLink href='/products'>Products</FooterLink>
+            <FooterLink href='/shopping-cart'>Shopping Cart</FooterLink>
         </FooterLinkContainer>
         <FooterLinkContainer className='d-grid text-left'>
-            <FooterTitle>Customer Care</FooterTitle>
-                <FooterLink href='/cookie-policy'>Cookies</FooterLink>
-                <FooterLink href='/privacy-policy'>Privacy Policy</FooterLink>
-                <FooterLink href='/terms-and-conditions'>Terms & Conditions</FooterLink>
+            <FooterTitle>Product Categories</FooterTitle>
+                <FooterLink href='/products/home'>Home</FooterLink>
+                <FooterLink href='/products/accessories'>Accessories</FooterLink>
+                <FooterLink href='/products/clothes'>Clothes</FooterLink>
         </FooterLinkContainer>
         <FooterLinkContainer className='d-grid text-left'>
             <FooterTitle>Follow Us</FooterTitle>

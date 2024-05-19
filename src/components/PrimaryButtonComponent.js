@@ -47,9 +47,9 @@ const ButtonText = styled.text`
 `
 
 const PrimaryButtonComponent = ({ text, link }) => {
-  return (<Button>
-        <Link to={link}>
-                <ButtonText style={{ color: '#FFFFFF'}}>
+  return (<Button className='border border-0'>
+        <Link to={link} className='text-decoration-none d-flex align-items-center'>
+                <ButtonText className='text-white'>
                     {text}
                 </ButtonText>
         </Link>

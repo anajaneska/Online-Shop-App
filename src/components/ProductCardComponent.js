@@ -1,5 +1,3 @@
-import { useContext } from "react"
-import { ShopContext } from '../context/shop-context'
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart } from "../features/cartSlice"
@@ -16,7 +14,7 @@ const ProductCardComponent = (props) => {
     }
 
     return ( 
-        <div className="col-md-3" style={{borderColor: "black",borderWidth:"3px"}}>
+        <div className="col-lg-3 col-md-6 mt-2 mb-2" style={{borderColor: "black", borderWidth:"3px"}}>
         <div className="card">
              <img className="card-img-top" src={image} alt="Card image"/> 
             <div className="card-body">

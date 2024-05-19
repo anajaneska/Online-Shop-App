@@ -5,6 +5,7 @@ import { signOut, getAuth } from "firebase/auth";
 import React from 'react';
 import styled from 'styled-components';
 import { IoCartOutline } from "react-icons/io5";
+import { useSelector } from "react-redux";
 import PrimaryButtonComponent from "./PrimaryButtonComponent";
 
 const Header = styled.header`
@@ -12,23 +13,38 @@ const Header = styled.header`
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.05);
 `
 const HeaderLinkContainer = styled.span`
+    display: flex;
+    align-items: center;
     @media (max-width: 768px) {
         display: none;
     }
 `
 const HeaderLink = styled.a`
     padding: 0 2rem;
-    color: red;
+    color: #000;
     text-decoration: none;
 `
 const HeaderImage = styled.img`
     width: 50px;
     padding: 0.5rem 0;
 `
+const ProductButtonContainer = styled.button`
+    background: #BB0000;
+    border-radius: 24px;
+    padding: 8px 30px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-align: center;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    border: none;
+`
 
 const HeaderComponent = () => {
     const auth = getAuth();
     const user = auth.currentUser;
+    const {cartTotalQuantity} = useSelector(state=>state.cart) 
 
     const handleLogout = (e) => {
         e.preventDefault();
@@ -37,7 +53,7 @@ const HeaderComponent = () => {
         }).catch((error) => { });
     }
 
-    return <Header className='d-flex justify-content-around align-items-center'>
+    return <Header className='d-flex justify-content-around align-items-center py-3'>
     <a href='/'>
         <HeaderImage src={""} alt="logo"></HeaderImage>
     </a >
@@ -45,13 +61,18 @@ const HeaderComponent = () => {
         <HeaderLink href='/'>Home</HeaderLink>
         <HeaderLink href='/products'>Products</HeaderLink>
         <HeaderLink href='/shopping-cart'>
-            <IoCartOutline size={"24px"}></IoCartOutline>
+            <div>
+                <IoCartOutline size={"24px"}></IoCartOutline>
+                <span>{cartTotalQuantity}</span>
+            </div>
         </HeaderLink>
         <HeaderLink>
             {user ? (
-                <button onClick={handleLogout}>Logout</button>
+                <ProductButtonContainer onClick={handleLogout}>Logout</ProductButtonContainer>
             ) : (
-                <Link to="/login">Login</Link>
+                <Link to="/login">
+                    <ProductButtonContainer>Login</ProductButtonContainer>
+                </Link>
             )}
         </HeaderLink>
         

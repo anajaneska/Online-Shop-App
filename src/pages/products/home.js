@@ -6,7 +6,7 @@ import PrimaryButtonComponent from '../../components/PrimaryButtonComponent';
 import SubheadingComponent1 from '../../components/SubheadingComponent1';
 import SubheadingComponent2 from '../../components/SubheadingComponent2';
 import CategoryCardComponent from '../../components/CategoryCardComponent';
-import Product from "./product";
+import ProductCardComponent from "../../components/ProductCardComponent";
 import AboutUs from '../../images/aboutus.png';
 import BannerLaptop from '../../images/aboutus.png';
 import BannerTablet from '../../images/aboutus.png';
@@ -123,7 +123,7 @@ const Home = () => {
                 
           <div className='container'>
             <SubheadingComponent1 text="Categories"></SubheadingComponent1>
-            <CategoryCardsWrapper className='row py-5'>
+            <CategoryCardsWrapper className='row py-5 px-5 mx-5'>
               <div className="col-lg-4 col-md-4 col-12 d-flex justify-content-center"> 
                 <CategoryCardComponent text="Home" image={"/"}></CategoryCardComponent>
               </div>
@@ -131,7 +131,7 @@ const Home = () => {
                 <CategoryCardComponent text="Accessories" image={"/"}></CategoryCardComponent>
               </div>
               <div className="col-lg-4 col-md-4 col-12 d-flex justify-content-center"> 
-                <CategoryCardComponent text="Clothing" image={"/"}></CategoryCardComponent>
+                <CategoryCardComponent text="Clothes" image={"/"}></CategoryCardComponent>
               </div>
             </CategoryCardsWrapper>
           </div>
@@ -151,10 +151,10 @@ const Home = () => {
           </div>
                 
           <div className='container my-5 py-5'>
-            <SubheadingComponent2 text="Our Products"></SubheadingComponent2>
-            <OffersContainerWrapper className='row'>
+            <SubheadingComponent2 text="Our Products" className="my-3"></SubheadingComponent2>
+            <OffersContainerWrapper className='row px-5'>
               {items.slice(0,8).map((product) => (
-                <Product key={product.id} data={product}/>
+                <ProductCardComponent key={product.id} data={product}/>
               ))}
             </OffersContainerWrapper>
           </div>
