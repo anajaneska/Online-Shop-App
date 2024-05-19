@@ -40,7 +40,7 @@ const CardImage = styled.img`
 const CategoryCardComponent = ({ text, image }) => {
   const formattedText = text.toLowerCase();
 
-  return <Link to={`/${formattedText}`}>
+  return <Link to={`/products/${formattedText}`}>
             <Card>
                 <CardImage src={image}></CardImage>
                 <CardTitle >{text}</CardTitle>

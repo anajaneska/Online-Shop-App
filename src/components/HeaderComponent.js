@@ -43,7 +43,7 @@ const HeaderComponent = () => {
     </a >
     <HeaderLinkContainer>
         <HeaderLink href='/'>Home</HeaderLink>
-        <HeaderLink href='/product'>Products</HeaderLink>
+        <HeaderLink href='/products'>Products</HeaderLink>
         <HeaderLink href='/shopping-cart'>
             <IoCartOutline size={"24px"}></IoCartOutline>
         </HeaderLink>

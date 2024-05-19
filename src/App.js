@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from './pages/login/register';
 import NotFound from './pages/not-found';
 import Login from './pages/login/login';
+import Home from "./pages/products/home";
 import Products from "./pages/products/products";
 import ProductDetails from './pages/products/productDetail';
 import Header from './components/HeaderComponent';
@@ -28,7 +29,7 @@ function App() {
     <Header></Header>
     <ToastContainer/>
       <Routes>
-        
+        <Route path='/' element={<Home/>}></Route>
         <Route path='/products' element={<Products/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
         <Route path="/login" element={<Login/>}></Route>

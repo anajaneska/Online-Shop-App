@@ -1,3 +1,17 @@
+import React from 'react';
+import styled from 'styled-components';
+import HeadingComponent from '../../components/HeadingComponent';
+import ParagraphComponent from '../../components/ParagraphComponent';
+import PrimaryButtonComponent from '../../components/PrimaryButtonComponent';
+import SubheadingComponent1 from '../../components/SubheadingComponent1';
+import SubheadingComponent2 from '../../components/SubheadingComponent2';
+import CategoryCardComponent from '../../components/CategoryCardComponent';
+import Product from "./product";
+import AboutUs from '../../images/aboutus.png';
+import BannerLaptop from '../../images/aboutus.png';
+import BannerTablet from '../../images/aboutus.png';
+import BannerPhone from '../../images/aboutus.png';
+import { useSelector } from "react-redux";
 
 const CategoryCardsWrapper = styled.div`
 `
@@ -88,7 +102,9 @@ const AboutUsText = styled.p`
   }
 `
 
-const New = () => {
+const Home = () => {
+  const {items}= useSelector(state=>state.products)
+
     return(
         <>
           <BannerImageWrapper className='container-fluid'>
@@ -109,13 +125,13 @@ const New = () => {
             <SubheadingComponent1 text="Categories"></SubheadingComponent1>
             <CategoryCardsWrapper className='row py-5'>
               <div className="col-lg-4 col-md-4 col-12 d-flex justify-content-center"> 
-                <CategoryCardComponent text="Clothing" image={"/"}></CategoryCardComponent>
+                <CategoryCardComponent text="Home" image={"/"}></CategoryCardComponent>
               </div>
               <div className="col-lg-4 col-md-4 col-12 d-flex justify-content-center"> 
                 <CategoryCardComponent text="Accessories" image={"/"}></CategoryCardComponent>
               </div>
               <div className="col-lg-4 col-md-4 col-12 d-flex justify-content-center"> 
-                <CategoryCardComponent text="Home" image={"/"}></CategoryCardComponent>
+                <CategoryCardComponent text="Clothing" image={"/"}></CategoryCardComponent>
               </div>
             </CategoryCardsWrapper>
           </div>
@@ -137,7 +153,7 @@ const New = () => {
           <div className='container my-5 py-5'>
             <SubheadingComponent2 text="Our Products"></SubheadingComponent2>
             <OffersContainerWrapper className='row'>
-              {products.slice(0,8).map((product) => (
+              {items.slice(0,8).map((product) => (
                 <Product key={product.id} data={product}/>
               ))}
             </OffersContainerWrapper>
@@ -145,3 +161,5 @@ const New = () => {
       </>
     );
 }
+
+export default Home;
