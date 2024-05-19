@@ -5,6 +5,7 @@ import { signOut, getAuth } from "firebase/auth";
 import React from 'react';
 import styled from 'styled-components';
 import { IoCartOutline } from "react-icons/io5";
+import PrimaryButtonComponent from "./PrimaryButtonComponent";
 
 const Header = styled.header`
     background: #FCFCFC;
@@ -42,15 +43,18 @@ const HeaderComponent = () => {
     </a >
     <HeaderLinkContainer>
         <HeaderLink href='/'>Home</HeaderLink>
-        <HeaderLink href='/'>Categories</HeaderLink>
+        <HeaderLink href='/product'>Products</HeaderLink>
         <HeaderLink href='/shopping-cart'>
             <IoCartOutline size={"24px"}></IoCartOutline>
         </HeaderLink>
-        {user ? (
+        <HeaderLink>
+            {user ? (
                 <button onClick={handleLogout}>Logout</button>
             ) : (
                 <Link to="/login">Login</Link>
             )}
+        </HeaderLink>
+        
     </HeaderLinkContainer>
   </Header>;
 }

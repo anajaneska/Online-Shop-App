@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect,useContext } from "react";
-import useGetProducts from "../../getProducts";
-import { ShopContext, ShopContextProvider } from '../../context/shop-context'
+import useGetProducts from "../getProducts";
+import { ShopContext, ShopContextProvider } from '../context/shop-context'
 
-const ProductDetails = ({products}) => {
+const ProductDetailsComponent = ({}) => {
     const {id} = useParams()
     const {productList}=useGetProducts()
     const product = productList.find(product => product.id === id);
@@ -32,4 +32,4 @@ const ProductDetails = ({products}) => {
 
 };
 
-export default ProductDetails;
+export default ProductDetailsComponent;

@@ -1,6 +1,4 @@
-import { useNavigate } from "react-router";
-import { useEffect, useState, useContext} from "react";
-import Product from "./product";
+import Product from "../../components/ProductCardComponent";
 import HeadingComponent  from '../../components/HeadingComponent'
 import ParagraphComponent from '../../components/ParagraphComponent'
 import PrimaryButtonComponent  from '../../components/PrimaryButtonComponent'
@@ -102,95 +100,60 @@ const AboutUsText = styled.p`
   }
 `
 const Home = ({products}) => {
-    const navigate = useNavigate();
-    const [search, setSearch] =useState('');
-    const [selectedCategory, setSelectedCategory]=useState('')
-    
-    function handleAdd(e){
-        setSelectedCategory(e.target.value)
-     }
-
     return(
         <>
-            Home
-        <form>
-            <input placeholder='Search products' 
-            onChange={(e) => setSearch(e.target.value)}>
-          </input>
-        </form>
-        <select name="filter" onChange={handleAdd}>
-          <option value="All">All</option>
-          <option value="Home">Home</option>
-          <option value="Accessory">Accessory</option>
-          <option value="Clothing">Clothing</option>
-        </select>
-
-
-            {products
-            .filter((item) => {
-                return search.toLowerCase() === ''
-                ? item
-                : item.name.toLowerCase().includes(search)
-            })
-            .filter((item)=>{
-                if(selectedCategory==='All')
-                return true
-                else
-                return item.category===selectedCategory
-            })}
-           
-                    <BannerImageWrapper className='container-fluid'>
-                        <BannerImage className='row'>
-                          <CTAContainer className='col-lg-6 col-md-7 col-sm-7'>
-                            <HeadingComponent text="Add a touch of handmade charm to your life!"></HeadingComponent>
-                            <ParagraphComponent text="From cozy blankets to delicate accessories, each piece in our collection is crafted with passion and precision. 
-                            Explore our shop to find the perfect addition to your wardrobe or a unique gift for someone special."></ParagraphComponent> 
-                            <ButtonsContainerWrapper>
-                              <PrimaryButtonComponent text="Shop Crafts" link="/products"></PrimaryButtonComponent>
-                            </ButtonsContainerWrapper>
-                          </CTAContainer>
-                          <div className='col-lg-6 col-md-5 col-sm-4'></div>
-                        </BannerImage>
-                      </BannerImageWrapper>
+          <BannerImageWrapper className='container-fluid'>
+            <BannerImage className='row'>
+              <CTAContainer className='col-lg-6 col-md-7 col-sm-7'>
+                <HeadingComponent text="Add a touch of handmade charm to your life!"></HeadingComponent>
+                <ParagraphComponent text="From cozy blankets to delicate accessories, each piece in our collection is crafted with passion and precision. 
+                Explore our shop to find the perfect addition to your wardrobe or a unique gift for someone special."></ParagraphComponent> 
+                  <ButtonsContainerWrapper>
+                    <PrimaryButtonComponent text="Shop Crafts" link="/products"></PrimaryButtonComponent>
+                  </ButtonsContainerWrapper>
+              </CTAContainer>
+              <div className='col-lg-6 col-md-5 col-sm-4'></div>
+            </BannerImage>
+          </BannerImageWrapper>
                 
-                      <div className='container'>
-                      <SubheadingComponent1 text="Categories"></SubheadingComponent1>
-                      <CategoryCardsWrapper className='row py-5'>
-                        <div className="col-lg-4 col-md-4 col-12 d-flex justify-content-center"> 
-                          <CategoryCardComponent text="Clothing" image={"/"}></CategoryCardComponent>
-                        </div>
-                        <div className="col-lg-4 col-md-4 col-12 d-flex justify-content-center"> 
-                          <CategoryCardComponent text="Accessories" image={"/"}></CategoryCardComponent>
-                        </div>
-                        <div className="col-lg-4 col-md-4 col-12 d-flex justify-content-center"> 
-                          <CategoryCardComponent text="Home" image={"/"}></CategoryCardComponent>
-                        </div>
-                      </CategoryCardsWrapper>
-                    </div>
-                      <div className='container-fluid my-5'>
-                        <div className='row'>
-                          <AboutUsImage className='col-md-6'>
-                          </AboutUsImage>
-                          <AboutUsTextContainer className='col-md-6 col-12'>
-                            <HeadingComponent text="Our handcrafted journey"></HeadingComponent>
-                            <AboutUsText>At Pixie Crochet, we're dedicated to preserving the timeless art of crochet while infusing it with modern flair. 
-                                Our team of skilled artisans pours passion and expertise into every handmade creation, ensuring that each piece reflects the highest standards of craftsmanship and style. 
-                                But beyond offering exquisite crochet items, we strive to cultivate a vibrant community where creativity flourishes and connections are made. 
-                                With a commitment to quality, tradition, and innovation, we invite you to explore our collection and join us in celebrating the beauty of handmade craftsmanship.</AboutUsText> 
-                            <PrimaryButtonComponent text="Learn More" link="/about-us"></PrimaryButtonComponent>
-                          </AboutUsTextContainer>
-                        </div>
-                      </div>
+          <div className='container'>
+            <SubheadingComponent1 text="Categories"></SubheadingComponent1>
+            <CategoryCardsWrapper className='row py-5'>
+              <div className="col-lg-4 col-md-4 col-12 d-flex justify-content-center"> 
+                <CategoryCardComponent text="Clothing" image={"/"}></CategoryCardComponent>
+              </div>
+              <div className="col-lg-4 col-md-4 col-12 d-flex justify-content-center"> 
+                <CategoryCardComponent text="Accessories" image={"/"}></CategoryCardComponent>
+              </div>
+              <div className="col-lg-4 col-md-4 col-12 d-flex justify-content-center"> 
+                <CategoryCardComponent text="Home" image={"/"}></CategoryCardComponent>
+              </div>
+            </CategoryCardsWrapper>
+          </div>
+
+          <div className='container-fluid my-5'>
+            <div className='row'>
+              <AboutUsImage className='col-md-6'></AboutUsImage>
+              <AboutUsTextContainer className='col-md-6 col-12'>
+                <HeadingComponent text="Our handcrafted journey"></HeadingComponent>
+                <AboutUsText>At Pixie Crochet, we're dedicated to preserving the timeless art of crochet while infusing it with modern flair. 
+                  Our team of skilled artisans pours passion and expertise into every handmade creation, ensuring that each piece reflects the highest standards of craftsmanship and style. 
+                  But beyond offering exquisite crochet items, we strive to cultivate a vibrant community where creativity flourishes and connections are made. 
+                  With a commitment to quality, tradition, and innovation, we invite you to explore our collection and join us in celebrating the beauty of handmade craftsmanship.</AboutUsText> 
+                <PrimaryButtonComponent text="Learn More" link="/about-us"></PrimaryButtonComponent>
+              </AboutUsTextContainer>
+            </div>
+          </div>
                 
-                      <div className='container my-5 py-5'>
-                      <SubheadingComponent2 text="Our Products"></SubheadingComponent2>
-                      <OffersContainerWrapper className='row'>
-                           {products.slice(0,8).map((product) => (
-                                <Product key={product.id} data={product}/>
-                            ))}
-                      </OffersContainerWrapper>
-                      </div>
-                    </>
+          <div className='container my-5 py-5'>
+            <SubheadingComponent2 text="Our Products"></SubheadingComponent2>
+            <OffersContainerWrapper className='row'>
+              {products.slice(0,8).map((product) => (
+                <Product key={product.id} data={product}/>
+              ))}
+            </OffersContainerWrapper>
+          </div>
+      </>
     )
 }
 export default Home;

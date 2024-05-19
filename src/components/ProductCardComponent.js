@@ -1,15 +1,14 @@
 import { useContext } from "react"
-import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
-import { ShopContext } from '../../context/shop-context'
+import { ShopContext } from '../context/shop-context'
 import { Link } from "react-router-dom"
-const Product = (props) => {
+const ProductCardComponent = (props) => {
     const {id,name,price,description,image,category}=props.data
     const {addToCart,cartItems} =useContext(ShopContext)
 
     const cartItemAmount=cartItems[id]
 
     return ( 
-        <div className="col-md-3 m-4" style={{borderColor: "black",borderWidth:"3px"}}>
+        <div className="col-md-3" style={{borderColor: "black",borderWidth:"3px"}}>
         <div className="card">
              <img className="card-img-top" src={image} alt="Card image"/> 
             {/* <div className="card-img-top">
@@ -32,4 +31,4 @@ const Product = (props) => {
      );
 }
  
-export default Product;
+export default ProductCardComponent;
