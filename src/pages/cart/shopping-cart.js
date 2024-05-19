@@ -1,27 +1,53 @@
-import useGetProducts from "../../getProducts";
-import { ShopContext, ShopContextProvider } from '../../context/shop-context'
-import { useContext } from "react";
 import ProductInCart from "./productInCart";
+import { useDispatch , useSelector} from "react-redux";
+import { useEffect } from "react";
+import { clearCart, getTotals } from '../../features/cartSlice';
+
 const ShoppingCart = () => {
-    const {cartItems} = useContext(ShopContext)
-    const { products } = useContext(ShopContext)
-    console.log(cartItems, "cart in shopping-cart")
-    return ( 
+    const cart = useSelector(state => state.cart)
+    const dispatch = useDispatch()
+
+    useEffect(()=>{
+        dispatch(getTotals())
+    },[cart, dispatch])
+    const handleClear = () =>{
+        dispatch(clearCart())
+    }
+    return (
         <div className="cart">
-            
             <h2>Your Cart Items: </h2>
-            <div className="cartItems">
-                {Object.entries(cartItems).map(([itemId, quantity]) => {
-                    // Find the product corresponding to the itemId
-                    const product = products.find(product => product.id === itemId);
-                    if (quantity > 0 && product) {
-                        return <ProductInCart key={itemId} data={product} quantity={quantity} />;
-                    }
-                    return null;
-                })}
+            {cart.cartItems.length === 0 ? (
+                <div>
+                    <p>Your cart is empty</p>
+                </div>
+            ) : (
+                <div>
+                    <div className="titles">
+                        <h3 className="product-name">Product</h3>
+                        <h3 className="price">Price</h3>
+                        <h3 className="quantity">Quantity</h3>
+                        <h3 className="total">Total</h3>
+                    </div>
+                    <div>
+                        {cart.cartItems?.map(cartItem => (
+                            <ProductInCart key={cartItem.id} data={cartItem}/>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            <div>
+                <button onClick={()=>handleClear()}>Clear cart</button>
+                <div>
+                    Subtotal: {cart.cartTotalAmount}
+                </div>
+                <div>
+                    <a href="/">Back to shopping</a>
+                </div>
             </div>
+
         </div>
-     );
+    )
 }
- 
+
 export default ShoppingCart;

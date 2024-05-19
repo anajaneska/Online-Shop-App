@@ -1,3 +1,8 @@
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
+import { useNavigate } from "react-router";
+import { useState} from "react";
+import { useSelector } from "react-redux";
 import Product from "../../components/ProductCardComponent";
 import HeadingComponent  from '../../components/HeadingComponent'
 import ParagraphComponent from '../../components/ParagraphComponent'
@@ -10,6 +15,7 @@ import AboutUs from '../../images/aboutus.png'
 import BannerLaptop from '../../images/aboutus.png'
 import BannerTablet from '../../images/aboutus.png'
 import BannerPhone from '../../images/aboutus.png'
+import Products from "./products";
 
 const CategoryCardsWrapper = styled.div`
 `
@@ -100,7 +106,56 @@ const AboutUsText = styled.p`
   }
 `
 const Home = ({products}) => {
+  const {items}= useSelector(state=>state.products)
+    //console.log(items);
+    const navigate = useNavigate();
+    const [search, setSearch] =useState('');
+    const [selectedCategory, setSelectedCategory]=useState('All')
+   // const {addToCart,cartItems} =useContext(ShopContext)
+
+    const handleLogout = (e) => {
+        e.preventDefault();
+        signOut(auth).then(() => {
+            navigate("/login");
+        }).catch((error) => { });
+    }
+
+    function handleAdd(e){
+        setSelectedCategory(e.target.value)
+     }
     return(
+      <>
+        <div>
+            Home
+            <button type="submit" onClick={handleLogout}>Logout</button>
+        <form>
+            <input placeholder='Search products' 
+            onChange={(e) => setSearch(e.target.value)}>
+          </input>
+        </form>
+        <select name="filter" onChange={handleAdd}>
+          <option value="All">All</option>
+          <option value="Home">Home</option>
+          <option value="Accessory">Accessory</option>
+          <option value="Clothing">Clothing</option>
+        </select>
+
+        {items
+            .filter((item) => {
+                return search.toLowerCase() === ''
+                ? item
+                : item.name.toLowerCase().includes(search)
+            })
+            .filter((item)=>{
+                if(selectedCategory==='All')
+                return true
+                else
+                return item.category===selectedCategory
+            })
+            .map((product) => (
+                <Products key={product.id} data={product}/>
+            ))}
+              </div>
         <>
           <BannerImageWrapper className='container-fluid'>
             <BannerImage className='row'>
@@ -153,6 +208,7 @@ const Home = ({products}) => {
               ))}
             </OffersContainerWrapper>
           </div>
+      </>
       </>
     )
 }
