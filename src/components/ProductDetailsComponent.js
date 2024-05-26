@@ -5,7 +5,7 @@ import { addToCart } from "../features/cartSlice"
 import PrimaryButtonComponent from "./PrimaryButtonComponent";
 
 const ProductDetailsWrapper = styled.div`
-`;
+`
 const ProductDetailsImage = styled.img`
 `
 const ProductDetailsContainer = styled.div`

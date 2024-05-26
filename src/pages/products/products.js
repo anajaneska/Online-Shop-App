@@ -14,6 +14,7 @@ const ProductFilterWrapper = styled.div`
 `
 const SearchFilterContainer = styled.input`
     border-radius: 24px;
+    border: solid 1px #adb5bd;
     padding: 8px 25px;
 
     @media (max-width: 1400px) {
@@ -31,6 +32,9 @@ const SearchFilterContainer = styled.input`
 `
 const CategoryFilterContainer = styled.select`
     padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 1px;
 
     @media (max-width: 1400px) {
         font-size: 0.8rem;
@@ -53,21 +57,12 @@ const Products = () => {
     const [search, setSearch] =useState('');
     const [selectedCategory, setSelectedCategory]=useState('All')
 
-    const handleLogout = (e) => {
-        e.preventDefault();
-        signOut(auth).then(() => {
-            navigate("/login");
-        }).catch((error) => { });
-    }
-
     function handleAdd(e){
         setSelectedCategory(e.target.value)
      }
 
     return(
     <div className="container px-5">
-            {/* Home
-            <button type="submit" onClick={handleLogout}>Logout</button> */}
         <div className="container my-5">
             <SubheadingComponent1 text="All Products" className="my-3"></SubheadingComponent1>
             <ProductFilterWrapper className='d-flex justify-content-end'>
@@ -79,7 +74,7 @@ const Products = () => {
                 <CategoryFilterContainer name="filter" onChange={handleAdd}>
                     <option value="All">All</option>
                     <option value="Home">Home</option>
-                    <option value="Accessory">Accessory</option>
+                    <option value="Accessory">Accessory</option> 
                     <option value="Clothing">Clothing</option>
                 </CategoryFilterContainer>
             </ProductFilterWrapper>

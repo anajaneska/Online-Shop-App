@@ -36,21 +36,21 @@ const ButtonText = styled.text`
     color: #BB0000;
     
     @media (max-width: 1400px) {
-        font-size: 0.9rem;
+        padding: 10px 24px;
     }
     @media (max-width: 1200px) {
-        font-size: 0.8rem;
+        padding: 9px 23px;
     }
     @media (max-width: 992px) {
-        font-size: 0.8rem;
+        padding: 9px 23px;
     }
     @media (max-width: 768px) {
-        font-size: 0.7rem;
+        padding: 8px 22px;
     }
 `
 const SecondaryButtonComponent = ({ text, link }) => {
   return (<Button>
-            <Link to={link}>
+            <Link to={link} className='text-decoration-none'>
                 <ButtonText>
                     {text}
                 </ButtonText>

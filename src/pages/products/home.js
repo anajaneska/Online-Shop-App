@@ -8,9 +8,9 @@ import SubheadingComponent2 from '../../components/SubheadingComponent2';
 import CategoryCardComponent from '../../components/CategoryCardComponent';
 import ProductCardComponent from "../../components/ProductCardComponent";
 import AboutUs from '../../images/aboutus.png';
-import BannerLaptop from '../../images/aboutus.png';
-import BannerTablet from '../../images/aboutus.png';
-import BannerPhone from '../../images/aboutus.png';
+import BannerLaptop from '../../images/banner.png';
+import BannerTablet from '../../images/banner.png';
+import BannerPhone from '../../images/banner.png';
 import { useSelector } from "react-redux";
 
 const CategoryCardsWrapper = styled.div`
