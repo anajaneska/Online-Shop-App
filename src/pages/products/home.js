@@ -7,11 +7,12 @@ import SubheadingComponent1 from '../../components/SubheadingComponent1';
 import SubheadingComponent2 from '../../components/SubheadingComponent2';
 import CategoryCardComponent from '../../components/CategoryCardComponent';
 import ProductCardComponent from "../../components/ProductCardComponent";
-import AboutUs from '../../images/banner.png';
-import BannerLaptop from '../../images/banner.png';
-import BannerTablet from '../../images/banner.png';
-import BannerPhone from '../../images/banner.png';
+import AboutUs from '../../images/aboutus.png';
+import BannerLaptop from '../../images/banners.png';
 import { useSelector } from "react-redux";
+import { TbHome } from "react-icons/tb";
+import { TbSparkles } from "react-icons/tb";
+import { TbShirt } from "react-icons/tb";
 
 const CategoryCardsWrapper = styled.div`
 `
@@ -20,21 +21,19 @@ const OffersContainerWrapper = styled.div`
 `
 
 const BannerImageWrapper = styled.div`
-  background: url(${BannerLaptop});
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url(${BannerLaptop});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   padding: 4rem 1rem;
 
   @media (max-width: 768px) {
-    background: url(${BannerTablet});
     background-size: cover;
     background-position: unset;
     background-repeat: no-repeat;
   }
 
   @media (max-width: 576px) {
-    background: url(${BannerPhone});
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -71,6 +70,14 @@ const AboutUsImage = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   padding: 9rem;
+  background-position: center;
+
+  @media (max-width: 992px) {
+    background-position: bottom;
+  }
+  @media (max-width: 768px) {
+    background-position: top;
+  }
 `
 const AboutUsTextContainer = styled.div`
   padding: 4rem;
@@ -125,13 +132,13 @@ const Home = () => {
             <SubheadingComponent1 text="Categories"></SubheadingComponent1>
             <CategoryCardsWrapper className='row py-5 px-5 mx-5'>
               <div className="col-lg-4 col-md-4 col-12 d-flex justify-content-center"> 
-                <CategoryCardComponent text="Home" image={"/"}></CategoryCardComponent>
+                <CategoryCardComponent text="Home" image={<TbHome size="70px" color="#7A1D15" strokeWidth="1"/>}></CategoryCardComponent>
               </div>
               <div className="col-lg-4 col-md-4 col-12 d-flex justify-content-center"> 
-                <CategoryCardComponent text="Accessories" image={"/"}></CategoryCardComponent>
+                <CategoryCardComponent text="Accessories" image={<TbSparkles size="70px" color="#7A1D15" strokeWidth="1"/>}></CategoryCardComponent>
               </div>
               <div className="col-lg-4 col-md-4 col-12 d-flex justify-content-center"> 
-                <CategoryCardComponent text="Clothes" image={"/"}></CategoryCardComponent>
+                <CategoryCardComponent text="Clothes" image={<TbShirt size="70px" color="#7A1D15" strokeWidth="1"/>}></CategoryCardComponent>
               </div>
             </CategoryCardsWrapper>
           </div>

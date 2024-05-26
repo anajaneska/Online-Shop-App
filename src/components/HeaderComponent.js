@@ -1,12 +1,10 @@
-import { MdOutlineShoppingCart } from "react-icons/md";
-import { FiUser } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { signOut, getAuth } from "firebase/auth";
 import React from 'react';
 import styled from 'styled-components';
 import { IoCartOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
-import PrimaryButtonComponent from "./PrimaryButtonComponent";
+import Logo from "../images/logos.png";
 
 const Header = styled.header`
     background: #FCFCFC;
@@ -23,13 +21,15 @@ const HeaderLink = styled.a`
     padding: 0 2rem;
     color: #000;
     text-decoration: none;
+    font-family: 'Montserrat';
 `
 const HeaderImage = styled.img`
-    width: 50px;
+    width: 90px;
     padding: 0.5rem 0;
+    border-radius: 50%;
 `
 const ProductButtonContainer = styled.button`
-    background: #BB0000;
+    background: #713D30;
     border-radius: 24px;
     padding: 8px 30px;
     font-family: 'Montserrat';
@@ -53,9 +53,9 @@ const HeaderComponent = () => {
         }).catch((error) => { });
     }
 
-    return <Header className='d-flex justify-content-around align-items-center py-3'>
+    return <Header className='d-flex justify-content-around align-items-center'>
     <a href='/'>
-        <HeaderImage src={""} alt="logo"></HeaderImage>
+        <HeaderImage src={Logo} alt="logo"></HeaderImage>
     </a >
     <HeaderLinkContainer>
         <HeaderLink href='/'>Home</HeaderLink>

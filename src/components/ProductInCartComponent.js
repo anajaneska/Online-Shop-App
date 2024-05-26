@@ -24,7 +24,7 @@ const ProductInCartDetails = styled.div`
     font-style: normal;
     font-weight: 400;
     font-size: 1.2rem;
-
+    color: #495057;
     @media (max-width: 768px) {
     font-size: 1rem;
     }
@@ -45,9 +45,10 @@ const ProductInCartName = styled.h2`
     font-style: normal;
     font-weight: 700;
     font-size: 35px;
+    color: #713D30;
 `
 const ProductInCartQuantity = styled.button`
-    background: #BB0000;
+    background: #713D30;
     border-radius: 50px;
     padding: 0 13px;
     font-family: 'Montserrat';
@@ -59,7 +60,7 @@ const ProductInCartQuantity = styled.button`
     border: none;
 `
 const ProductButtonContainer = styled.button`
-    background: #BB0000;
+    background: #713D30;
     border-radius: 24px;
     padding: 5px 25px;
     font-family: 'Montserrat';

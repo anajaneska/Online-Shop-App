@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Button = styled.button`
-    border: 1px solid #BB0000;
+    border: 1px solid #713D30;
     border-radius: 24px;
     padding: 11px 25px;
     background-color: transparent;
@@ -33,7 +33,7 @@ const ButtonText = styled.text`
     font-size: 16px;
     text-align: center;
     text-transform: capitalize;
-    color: #BB0000;
+    color: #713D30;
     
     @media (max-width: 1400px) {
         padding: 10px 24px;

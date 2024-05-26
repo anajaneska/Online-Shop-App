@@ -17,11 +17,13 @@ const ProductHeadingContainer = styled.h2`
     font-weight: 700;
     font-size: 45px;
     margin-top: 1rem;
+    color: #713D30;
 `
 const ProductDescriptionContainer = styled.p`
     font-family: 'Montserrat';
     font-style: normal;
     font-size: 20px;
+    color: #495057;
 `
 const ProductPriceContainer = styled.h3`
     font-family: 'Montserrat';
@@ -30,9 +32,10 @@ const ProductPriceContainer = styled.h3`
     font-size: 25px;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    color: #572012;
 `
 const ProductButtonContainer = styled.button`
-    background: #BB0000;
+    background: #713D30;
     border-radius: 24px;
     padding: 11px 25px;
     font-family: 'Montserrat';
@@ -66,8 +69,8 @@ const ProductDetailsComponent = ({}) => {
                 <ProductDetailsContainer className="col-lg-6">
                     <ProductHeadingContainer>{product.name}</ProductHeadingContainer>
                         <ProductDescriptionContainer>{product.description}</ProductDescriptionContainer>
-                            <div>Choose color</div>
-                            <div>Choose quantity</div>
+                            {/* <div>Choose color</div>
+                            <div>Choose quantity</div> */}
                             <div className="d-flex justify-content-end">
                                 <ProductPriceContainer>{product.price} ден.</ProductPriceContainer>
                             </div>

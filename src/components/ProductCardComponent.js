@@ -9,11 +9,13 @@ const ProductHeadingContainer = styled.h2`
     font-weight: 700;
     font-size: 30px;
     margin-bottom: 0;
+    color: #713D30;
 `
 const ProductDescriptionContainer = styled.p`
     font-family: 'Montserrat';
     font-style: normal;
     font-size: 14px;
+    color: #495057;
 `
 const ProductPriceContainer = styled.h3`
     font-family: 'Montserrat';
@@ -21,9 +23,10 @@ const ProductPriceContainer = styled.h3`
     font-weight: 500;
     font-size: 18px;
     margin-bottom: 1rem;
+    color: #572012;
 `
 const ProductButtonContainer = styled.button`
-    background: #BB0000;
+    background: #713D30;
     border-radius: 24px;
     padding: 8px 17px;
     font-family: 'Montserrat';
@@ -44,8 +47,8 @@ const DetailsButtonContainer = styled.button`
     font-size: 14px;
     text-align: center;
     text-transform: capitalize;
-    color: #BB0000;
-    border: solid 1px #BB0000;
+    color: #713D30;
+    border: solid 2px #713D30;
 `
 const ProductImageContainer = styled.img`
     width: 100%;

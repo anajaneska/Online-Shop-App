@@ -10,15 +10,15 @@ const EmptyCartContainer = styled.div`
     font-family: 'Montserrat';
 `
 const CartButtonContainer = styled.button`
-    border: solid 2px #BB0000;
+    border: solid 2px #713D30;
     border-radius: 24px;
     padding: 5px 35px;
     font-family: 'Montserrat';
-    font-weight: 500;
+    font-weight: 500; 
     font-size: 1rem;
     text-align: center;
     text-transform: capitalize;
-    color: #BB0000;
+    color: #713D30;
     
     @media (max-width: 768px) {
         font-size: 0.8rem;

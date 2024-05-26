@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Button = styled.button`
-    background: #BB0000;
+    background: #713D30;
     border-radius: 24px;
     padding: 11px 25px;
     display: flex;

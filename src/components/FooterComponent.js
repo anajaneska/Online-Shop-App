@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
+import Logo from "../images/logo.png";
 
 const Footer = styled.footer`
-    padding: 3rem 2rem;
-    background: #9F0000;
+    padding: 2rem;
+    background: #713D30;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -40,8 +41,10 @@ const FooterTitle = styled.h2`
 `
 const FooterLink = styled.a`
     padding: 0.3rem 0;
-    color: #FFFFFF;
+    color: #e9ecef;
+    font-family: 'Montserrat';
     text-decoration: none;
+    font-size: 15px;
     &:hover {
         color: #FFFFFF;
         font-weight: 500;
@@ -61,7 +64,7 @@ const ImageLink = styled.a`
 const FooterComponent = () => {
   return <Footer>
     <ImageLink href='/'>
-        <FooterImage src={"/"}>
+        <FooterImage src={Logo}>
         </FooterImage>
     </ImageLink>
     <FooterLinksWrapper>

@@ -7,7 +7,7 @@ const Heading = styled.h1`
     font-weight: 700;
     font-size: 35px;
     text-transform: uppercase;
-    color: #0D0909;
+    color: #1B0904;
     text-align: center;
 
     @media (max-width: 1400px) {

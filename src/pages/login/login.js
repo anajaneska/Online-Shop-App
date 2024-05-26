@@ -25,7 +25,7 @@ const InputContainer = styled.input`
     margin-bottom: 15px;
 `
 const ProductButtonContainer = styled.button`
-    background: #BB0000;
+    background: #713D30;
     border-radius: 24px;
     padding: 8px 17px;
     font-family: 'Montserrat';
@@ -46,8 +46,8 @@ const DetailsButtonContainer = styled.button`
     font-size: 14px;
     text-align: center;
     text-transform: capitalize;
-    color: #BB0000;
-    border: solid 1px #BB0000;
+    color: #713D30;
+    border: solid 1px #713D30;
 `
 const AccountContainer = styled.div`
     font-family: 'Montserrat';
@@ -60,7 +60,7 @@ const RegisterLink = styled.a`
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    color: #BB0000;
+    color: #713D30;
     margin: 0 10px;
 `
 
