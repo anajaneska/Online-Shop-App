@@ -79,7 +79,8 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                navigate("/")
+                navigate("/");
+                window.location.reload();
             })
             .catch((error) => {
                 const errorCode = error.code;

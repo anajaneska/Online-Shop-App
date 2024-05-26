@@ -7,7 +7,7 @@ import SubheadingComponent1 from '../../components/SubheadingComponent1';
 import SubheadingComponent2 from '../../components/SubheadingComponent2';
 import CategoryCardComponent from '../../components/CategoryCardComponent';
 import ProductCardComponent from "../../components/ProductCardComponent";
-import AboutUs from '../../images/aboutus.png';
+import AboutUs from '../../images/banner.png';
 import BannerLaptop from '../../images/banner.png';
 import BannerTablet from '../../images/banner.png';
 import BannerPhone from '../../images/banner.png';

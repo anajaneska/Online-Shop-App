@@ -49,7 +49,7 @@ const HeaderComponent = () => {
     const handleLogout = (e) => {
         e.preventDefault();
         signOut(auth).then(() => {
-            
+            window.location.reload();
         }).catch((error) => { });
     }
 
