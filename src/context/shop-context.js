@@ -3,19 +3,19 @@ import useGetProducts from "../getProducts";
 
 export const ShopContext = createContext(null);
 
-const GetDefaultCart = () => {
-    const {productList}=useGetProducts()
-    let cart = {}
-    for(let item in productList){
-        const itemId=productList[item].id
-        cart[itemId]=0
-    }
-    return cart
+const getDefaultCart = (products) => {
+    let cart = {};
+    products.forEach(item => {
+        const itemId = item.id;
+        cart[itemId]=0;
+    });
+    return cart;
 }
 
-export const ShopContextProvider = (props) => {
-    const [cartItems,setCartItems] = useState(GetDefaultCart());
-
+export const ShopContextProvider = ({children}) => {
+    const products = useGetProducts().productList;
+    const [cartItems,setCartItems] = useState(getDefaultCart(products));
+    //console.log(cartItems)
     const addToCart = (itemId) =>{
         setCartItems((prev)=>{
             if(!prev[itemId]){
@@ -24,6 +24,7 @@ export const ShopContextProvider = (props) => {
 
             return {...prev,[itemId]:prev[itemId]+1}
         })
+        console.log(cartItems)
     }
     const removeFromCart = (itemId) => {
         setCartItems((prev)=>{
@@ -37,9 +38,11 @@ export const ShopContextProvider = (props) => {
             return {...prev, [itemId]:prev[itemId]-1}
         })
     }
-    const contextValue={cartItems,addToCart,removeFromCart}
+    const contextValue={cartItems,addToCart,removeFromCart,products}
 
     return (
-        <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>
+        <ShopContext.Provider value={contextValue}>
+            {children}
+        </ShopContext.Provider>
     )
 }
